@@ -21,10 +21,12 @@ public class TestListExamples {
 
   @Test(timeout = 500)
   public void testFilter() {
-    List<String> list = Arrays.asList("a", "b", "c", "a", "a");
-    List<String> expected = Arrays.asList("a", "a", "a");
+    List<String> list = Arrays.asList("a", "a", "moon", "moon", "a", "a");
+    List<String> expected = Arrays.asList("moon", "moon");
     
-    List<String> actual = list.filter();
+    StringChecker sc = new IsMoon();
+    
+    List<String> actual = ListExamples.filter(list, sc);
 
     assertEquals(expected, actual);
   }
