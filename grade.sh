@@ -40,8 +40,9 @@ java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > out.txt 2>&1
 
 if [[ $? -ne 0 ]]
 then 
-    echo 'Tests failed!'
-    exit 1
+    sed '2q;d' out.txt | grep -o E | wc -l  
+    echo 'test(s) failed' 
+    grep Error out.txt
 else 
     echo 'All tests passed!'
 fi
