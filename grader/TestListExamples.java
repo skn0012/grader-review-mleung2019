@@ -23,7 +23,9 @@ public class TestListExamples {
   public void testFilter() {
     List<String> list = Arrays.asList("a", "b", "c", "a", "a");
     List<String> expected = Arrays.asList("a", "a", "a");
+    
+    List<String> actual = list.filter();
 
-    // assertEquals(expected, actual);
+    assertEquals(expected, actual);
   }
 }
